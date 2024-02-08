@@ -3,6 +3,9 @@ on:
     branches:
       - main
       - fibers
+  pull_request:
+    branches:
+      - fibers
 
 jobs:
   build:
