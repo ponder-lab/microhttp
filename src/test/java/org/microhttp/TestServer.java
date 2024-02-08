@@ -22,7 +22,7 @@ public class TestServer {
     TestServer(boolean handleInline, int readBufferSize, String response) throws IOException {
         this.response = response;
         logger = new TestLogger();
-        executor = Executors.newFixedThreadPool(1);
+        executor = Executors.newVirtualThreadPerTaskExecutor();
         Consumer<Consumer<Response>> c = callback -> callback.accept(new Response(
                 200,
                 "OK",
